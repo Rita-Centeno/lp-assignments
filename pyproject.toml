@@ -1,0 +1,37 @@
+[project]
+name = "life_expectancy"
+version = "0.1.0"
+description = "First assignment of the Foundations Learning Path"
+authors = [
+    {name = "Fernando Cordeiro<fernando@daredata.engineering>"},
+    {name = "Rita Centeno<ritafalcaocenteno@gmail.com>"}
+]
+dependencies = ["pandas"]
+
+readme = "README.md"
+requires-python = ">=3.8"
+
+
+[project.optional-dependencies]
+dev = ["pytest", "pylint", "pytest-cov", "toml"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["life_expectancy"]
+
+[tool.coverage.run]
+omit = [
+    "*/conftest.py", "*/test*", # omit test files
+]
+
+[tool.coverage.report]
+fail_under = 80
+
+[tool.pylint."messages control"]
+disable = [
+   "missing-module-docstring",
+   # Add any other checks you want to disable here
+]
