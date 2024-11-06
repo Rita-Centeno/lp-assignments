@@ -1,7 +1,9 @@
 import os
 import argparse
 import pandas as pd
-from life_expectancy.cleaning import clean_data
+# pylint: disable=import-error
+from cleaning import clean_data
+# pylint: enable=import-error
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(SCRIPT_DIR, 'data')
