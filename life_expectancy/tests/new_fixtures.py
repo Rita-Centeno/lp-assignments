@@ -17,7 +17,7 @@ def create_fixture(country_code: str = 'PT') -> None:
 
     sample_data_out = clean_data(sample_data_in, country_code)
     sample_data_out.to_csv(FIXTURES_DIR
-                           + f'{country_code.lower()}_life_expectancy_raw_sample_expected.csv',
+                           + 'eu_life_expectancy_raw_sample_expected.csv',
                            index=False)
 
 if __name__ == '__main__':
