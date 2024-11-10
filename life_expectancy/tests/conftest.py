@@ -13,7 +13,7 @@ def pt_life_expectancy_expected() -> pd.DataFrame:
 @pytest.fixture(scope="session")
 def eu_life_expectancy_raw_sample() -> pd.DataFrame:
     """Fixture to load the sample input data"""
-    return pd.read_csv(FIXTURES_DIR / "eu_life_expectancy_raw_sample.tsv")
+    return pd.read_csv(FIXTURES_DIR / "eu_life_expectancy_raw_sample.tsv", sep="\t")
 
 @pytest.fixture(scope="session")
 def eu_life_expectancy_raw_sample_expected() -> pd.DataFrame:

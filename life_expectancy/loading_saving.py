@@ -31,6 +31,7 @@ def main(filter_country: str = 'PT') -> None:
     cleaned_data = clean_data(data_to_clean=loaded_data, country=filter_country)
     save_data(data_to_save=cleaned_data, path=output_path)
 
+
 if __name__ == "__main__":  # pragma: no cover
     parser = argparse.ArgumentParser()
     parser.add_argument('--country', type=str, default='PT', help='Country code (default: PT)')
