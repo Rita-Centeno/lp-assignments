@@ -1,13 +1,8 @@
 """Tests for the cleaning module"""
-import os
-import sys
 from unittest.mock import patch
 import pandas as pd
-
-# Add the parent directory (life_expectancy) to sys.path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from life_expectancy.cleaning import clean_data # pylint: disable=C0413
-from life_expectancy.loading_saving import load_data, save_data # pylint: disable=C0413
+from life_expectancy.cleaning import clean_data
+from life_expectancy.loading_saving import load_data, save_data
 
 
 def test_clean_data(eu_life_expectancy_raw_sample, eu_life_expectancy_raw_sample_expected):
