@@ -4,7 +4,6 @@ import pandas as pd
 from life_expectancy.cleaning import clean_data
 from life_expectancy.loading_saving import load_data, save_data
 
-
 def test_clean_data(eu_life_expectancy_raw_sample, eu_life_expectancy_raw_sample_expected):
     """Run the `clean_data` function and compare the output to the expected output"""
 

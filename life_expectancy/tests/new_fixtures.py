@@ -1,13 +1,8 @@
 import os
 import argparse
 import pandas as pd
-# pylint: disable=import-error
-from cleaning import clean_data
-# pylint: enable=import-error
+from life_expectancy.cleaning import clean_data
 
-
-# current_dir = os.path.dirname(os.path.abspath(__file__))
-# BASE_DIR = os.path.dirname(current_dir)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 FIXTURES_DIR = os.path.join(BASE_DIR, "tests\\fixtures\\")
