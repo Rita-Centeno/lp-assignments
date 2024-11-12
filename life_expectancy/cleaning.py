@@ -1,6 +1,7 @@
 import pandas as pd
+from life_expectancy.regions import Region
 
-def clean_data(data_to_clean: pd.DataFrame, country: str = 'PT') -> pd.DataFrame:
+def clean_data(data_to_clean: pd.DataFrame, country: Region = Region.PT) -> pd.DataFrame:
     '''Cleans the data. Unpivots the data, removes NaNs, and filters only the data 
     where region equals to PT (Portugal)'''
 
@@ -23,4 +24,4 @@ def clean_data(data_to_clean: pd.DataFrame, country: str = 'PT') -> pd.DataFrame
     cleaned_data['value'] = cleaned_data['value'].astype(float)
 
     # Filter the data by country code
-    return cleaned_data[cleaned_data['region'] == country]
+    return cleaned_data[cleaned_data['region'] == country.name]

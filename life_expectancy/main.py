@@ -2,12 +2,13 @@ import os
 import argparse
 from life_expectancy.cleaning import clean_data
 from life_expectancy.loading_saving import load_data, save_data
+from life_expectancy.regions import Region
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.join(SCRIPT_DIR, 'data')
 
 
-def main(filter_country: str = 'PT') -> None:
+def main(filter_country: Region = Region.PT) -> None:
     '''Main function to load, clean and save the data'''
 
     # Define the data paths
@@ -23,6 +24,6 @@ def main(filter_country: str = 'PT') -> None:
 
 if __name__ == "__main__":  # pragma: no cover
     parser = argparse.ArgumentParser()
-    parser.add_argument('--country', type=str, default='PT', help='Country code (default: PT)')
+    parser.add_argument('--country', type=str, default=Region.PT, help='Country code (default: PT)')
     args = parser.parse_args()
     main(args.country)
