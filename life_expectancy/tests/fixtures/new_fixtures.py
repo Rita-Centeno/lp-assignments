@@ -4,7 +4,7 @@ import pandas as pd
 from life_expectancy.cleaning import clean_data
 from life_expectancy.regions import Region
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 FIXTURES_DIR = os.path.join(BASE_DIR, "tests\\fixtures\\")
 
@@ -22,7 +22,7 @@ def create_fixture(country_code: Region = Region.PT) -> None:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--country', type=Region, default=Region.PT,
-                        help='Country code to filter data (default: PT)')
+    parser.add_argument('--country', type=lambda x: Region[x], default=Region.PT,
+                    help='Country code (default: PT)')
     args = parser.parse_args()
     create_fixture(args.country)
