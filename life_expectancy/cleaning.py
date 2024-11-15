@@ -3,7 +3,7 @@ from life_expectancy.regions import Region
 
 def clean_data(data_to_clean: pd.DataFrame, country: Region = Region.PT) -> pd.DataFrame:
     '''Cleans the data. Unpivots the data, removes NaNs, and filters only the data 
-    where region equals to PT (Portugal)'''
+    from a specified region (default is PT (Portugal))'''
 
     # Unpivot the data
     split_columns = data_to_clean['unit,sex,age,geo\\time'].str.split(',', expand=True)
