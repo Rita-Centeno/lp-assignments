@@ -24,6 +24,7 @@ def main(filter_country: Region = Region.PT) -> None:
 
 if __name__ == "__main__":  # pragma: no cover
     parser = argparse.ArgumentParser()
-    parser.add_argument('--country', type=str, default=Region.PT, help='Country code (default: PT)')
+    parser.add_argument('--country', type=lambda x: Region[x], default=Region.PT,
+                    help='Country code (default: PT)')
     args = parser.parse_args()
     main(args.country)
