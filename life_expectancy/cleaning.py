@@ -1,7 +1,7 @@
 import pandas as pd
 from life_expectancy.regions import Region
 
-def clean_data(data: pd.DataFrame, country: Region) -> pd.DataFrame:
+def clean_data(data: pd.DataFrame, country: Region = Region.PT) -> pd.DataFrame:
     '''Cleans the data. Unpivots the data, removes NaNs, and filters only the data 
     from a specified region (default is PT (Portugal))'''
     data_to_clean = data.copy()
@@ -28,7 +28,7 @@ def clean_data(data: pd.DataFrame, country: Region) -> pd.DataFrame:
     return cleaned_data[cleaned_data['region'] == country.name]
 
 
-def clean_data_json(data: pd.DataFrame, country: Region) -> pd.DataFrame:
+def clean_data_json(data: pd.DataFrame, country: Region = Region.PT) -> pd.DataFrame:
     '''Cleans the data and filters only the data from a specified 
     region (default is PT (Portugal)). This function is used for json data'''
     data_to_clean = data.copy()
