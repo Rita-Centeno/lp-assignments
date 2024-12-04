@@ -12,13 +12,23 @@ def pt_life_expectancy_expected() -> pd.DataFrame:
 
 @pytest.fixture(scope="session")
 def eu_life_expectancy_raw_sample() -> pd.DataFrame:
-    """Fixture to load the sample input data"""
+    """Fixture to load the sample input data in TSV format"""
     return pd.read_csv(FIXTURES_DIR / "eu_life_expectancy_raw_sample.tsv", sep="\t")
 
 @pytest.fixture(scope="session")
+def eurostat_life_expect_json_sample() -> pd.DataFrame:
+    """Fixture to load the sample input data in JSON format"""
+    return pd.read_json(FIXTURES_DIR / "eurostat_life_expect_sample.json")
+
+@pytest.fixture(scope="session")
 def eu_life_expectancy_raw_sample_expected() -> pd.DataFrame:
-    """Fixture to load the expected output after cleaning"""
+    """Fixture to load the expected output after cleaning TSV data"""
     return pd.read_csv(FIXTURES_DIR / "eu_life_expectancy_raw_sample_expected.csv")
+
+@pytest.fixture(scope="session")
+def eurostat_life_expect_json_sample_expected() -> pd.DataFrame:
+    """Fixture to load the expected output after cleaning JSON data"""
+    return pd.read_csv(FIXTURES_DIR / "eurostat_life_expect_sample_expected.csv")
 
 @pytest.fixture(scope="session")
 def regions_expected() -> pd.DataFrame:
