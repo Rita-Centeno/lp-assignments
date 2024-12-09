@@ -59,9 +59,6 @@ class Region(Enum):
     UK = auto()
     XK = auto()
 
-    def lower(self):
-        """Function to return the region name in lowercase"""
-        return self.name.lower()
 
     @classmethod
     def get_valid_regions(cls):
