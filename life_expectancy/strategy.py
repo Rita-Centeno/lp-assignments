@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import os
 import pandas as pd
 from life_expectancy.regions import Region
 from life_expectancy.loading_saving import load_data, load_data_json, save_data
@@ -44,9 +45,16 @@ class JsonDataStrategy(DataStrategy):
 
 
 def get_strategy(file_path: str):
-    """Determine the appropriate strategy based on the file extension"""
-    if file_path.endswith('.tsv'):
-        return TsvDataStrategy()
-    if file_path.endswith('.json'):
-        return JsonDataStrategy()
-    raise ValueError(f"Unsupported file extension for file: {file_path}")
+    """Determine the appropriate strategy based on the file extension."""
+    strategies = {
+        '.tsv': TsvDataStrategy,
+        '.json': JsonDataStrategy
+    }
+    _, ext = os.path.splitext(file_path)
+    try:
+        strategy = strategies[ext]
+        return strategy()
+    except KeyError as exc:
+        raise ValueError(f"Unsupported file extension: {ext}") from exc
+    except TypeError as exc:
+        raise ValueError(f"Error initializing strategy for file extension: {ext}") from exc
